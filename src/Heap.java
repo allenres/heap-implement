@@ -32,8 +32,8 @@ public class Heap {
 
     }
 
-    public void peek() {
-
+    public int peek() {
+        return this.array[0];
     }
 
     public int getSize() {
