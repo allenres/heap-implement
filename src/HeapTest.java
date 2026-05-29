@@ -63,7 +63,8 @@ public class HeapTest {
         }
       
     }
-
+    // TEST CASES FOR ADD VALUE METHOD
+    // TEST CASES FOR POP METHOD
     @Test
     public void testHeapPop() {
         //Arrange
@@ -80,10 +81,72 @@ public class HeapTest {
         //Actual
         for(int i = 0; i < heap.list.size(); i++){
             int actual = heap.list.get(i);
+            //Assert
             assertEquals(actual, expected[i]);
         }
+        
+    }
 
-        //Assert
+    @Test
+    public void testHeapDoubleDigitNumbers() {
+        //Arrange
+        int[] expected = new int[]{20, 30, 20, 40};
+        Heap heap = new Heap();
+        
+        heap.addValue(10);
+        heap.addValue(20);
+        heap.addValue(20);
+        heap.addValue(30);
+        heap.addValue(40);
+
+        heap.pop();
+        //Actual
+        for(int i = 0; i < heap.list.size(); i++){
+            int actual = heap.list.get(i);
+            //Assert
+            assertEquals(actual, expected[i]);
+        }
+        
+    }
+
+    @Test
+    public void testHeapLargerTree() {
+        //Arrange
+        int[] expected = new int[]{2, 3, 2, 4, 3, 3, 3, 4, 4, 4, 4, 4, 4, 4};
+        Heap heap = new Heap();
+        heap.addValue(1);
+        heap.addValue(2);
+        heap.addValue(2);
+        heap.addValue(3);
+        heap.addValue(3);
+        heap.addValue(3);
+        heap.addValue(3);
+        heap.addValue(4);
+        heap.addValue(4);
+        heap.addValue(4);
+        heap.addValue(4);
+        heap.addValue(4);
+        heap.addValue(4);
+        heap.addValue(4);
+        heap.addValue(4);
+      
+
+        /*
+                2
+              3   2
+            4  3 3  3 
+           44 44 44 4
+
+           // 2, 3, 2, 4, 3, 3, 3, 4, 4, 4, 4, 4, 4, 4
+        */
+
+        heap.pop();
+        //Actual
+        for(int i = 0; i < heap.list.size(); i++){
+            int actual = heap.list.get(i);
+            //Assert
+            assertEquals(actual, expected[i]);
+        }
         
     }
 }
