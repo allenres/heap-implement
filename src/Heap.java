@@ -67,11 +67,15 @@ public class Heap {
            2 3 2 4
         */
         //Left child: 2i + 1
+
+        
         if(list.size() == 0) return;
         int end = list.get(list.size() - 1);
+        int index = 0;
+        // swap the last value in and remove it
         list.set(0, end);
         list.remove(list.size() - 1);
-        int index = 0;
+        
         
         popHelperMethod(index);
         
@@ -79,11 +83,14 @@ public class Heap {
     }
 
     private void popHelperMethod(int index){
+        // while the leftChildExists keep going
         while (leftChildExists(index)) {
            int nextLeftChild = list.get(leftChildIndex(index));
+
+           // if the right child doesnt exist place max value so it so the if statment will default to false
            int nextRightChild = rightChildExists(index) ? list.get(rightChildIndex(index)) : Integer.MAX_VALUE;
            
-
+           //swap and move elements/index based <=
            if(nextRightChild < nextLeftChild) {
             list.set(rightChildIndex(index), list.get(index));
             list.set(index, nextRightChild);

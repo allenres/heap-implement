@@ -65,27 +65,25 @@ public class HeapTest {
     }
 
     @Test
-    public void testHeapOrdero() {
+    public void testHeapPop() {
+        //Arrange
+        int[] expected = new int[]{2, 3, 2, 4};
         Heap heap = new Heap();
-        int[] order = new int[]{1,2,2,3,4};
-        int[] expected = new int[]{2, 4, 2, 3};
+        
         heap.addValue(1);
         heap.addValue(2);
         heap.addValue(2);
         heap.addValue(3);
         heap.addValue(4);
-        
 
-
-        // 4 2 2 3  2 4 2 3
         heap.pop();
-       
-        for (int i = 0; i < heap.list.size(); i++) {
-            //Act
-            int Actual = order[i];
-
-            //assert
-            assertEquals(Actual, expected);
+        //Actual
+        for(int i = 0; i < heap.list.size(); i++){
+            int actual = heap.list.get(i);
+            assertEquals(actual, expected[i]);
         }
+
+        //Assert
+        
     }
 }
